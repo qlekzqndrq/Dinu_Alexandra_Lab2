@@ -41,7 +41,7 @@ namespace Dinu_Alexandra_Lab2.Pages.Books
                 .Select(a => new
                 {
                     a.ID,
-                    FullName = a.LastName + " " + a.FirstName
+                    FullName = a.FirstName + " " + a.LastName
                 })
                 .ToList();
 
