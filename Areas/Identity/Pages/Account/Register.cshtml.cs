@@ -134,8 +134,9 @@ namespace Dinu_Alexandra_Lab2.Areas.Identity.Pages.Account
                     var newMember = new Member();
                     newMember.Email = Input.Email;
                     _context.Member.Add(newMember);
-                    await _context.SaveChangesAsync(); 
+                    await _context.SaveChangesAsync();
 
+                    var role = await _userManager.AddToRoleAsync(user, "User");
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

@@ -1,5 +1,6 @@
 ﻿using Dinu_Alexandra_Lab2.Data;
 using Dinu_Alexandra_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,6 +18,7 @@ namespace Dinu_Alexandra_Lab2.Pages.Books
         public bool Assigned { get; set; }
     }
 
+    [Authorize(Roles = "Admin")]
     public class CreateModel : BookCategoriesPageModel
     {
         private readonly Dinu_Alexandra_Lab2Context _context;
